@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  skillbox:
+    container_name: skillbox-flatris
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+     - '3000'      
+    ports:
+     - '80:3000'
+    networks:
+      skillbox-network:
+        aliases:
+          - skillbox_service
+    restart: always
+networks:
+  skillbox-network:
+#    external: true
